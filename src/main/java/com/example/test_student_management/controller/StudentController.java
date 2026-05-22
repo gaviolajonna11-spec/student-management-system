@@ -14,6 +14,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.Node;
+import com.example.test_student_management.factory.AuthWindowFactory;
 
 import java.sql.SQLException;
 
@@ -38,6 +44,7 @@ public class StudentController {
     @FXML private TableColumn<Student, String> emailColumn;
     @FXML private TableColumn<Student, String> phoneColumn;
     @FXML private Pagination studentPagination;
+
 
     private final StudentRepository repository = new StudentRepository();
     private final ObservableList<Student> students = FXCollections.observableArrayList();
@@ -112,6 +119,22 @@ public class StudentController {
     @FXML
     private void handleClear(ActionEvent event) {
         clearForm();
+    }
+
+    @FXML
+    private void handleLogout(ActionEvent event) {
+        try {
+            Stage stage = (Stage) ((Node) event.getSource())
+                    .getScene()
+                    .getWindow();
+            stage.setScene(
+                    AuthWindowFactory.createLoginScene()
+            );
+            stage.setTitle("Login");
+            stage.show();
+        } catch (Exception e) {
+            showError("Logout Error", e.getMessage());
+        }
     }
 
     private void refreshPagination() {

@@ -13,13 +13,47 @@
 <?import javafx.scene.layout.Priority?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Region?>
 
-<VBox spacing="16.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test_student_management.controller.StudentController">
+<VBox spacing="20.0"
+      styleClass="root-container"
+      stylesheets="@/style.css"
+      xmlns="http://javafx.com/javafx/26"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.test_student_management.controller.StudentController">
     <padding>
         <Insets top="18" right="18" bottom="18" left="18" />
     </padding>
     <children>
-        <Label text="Student Management System" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+        <HBox alignment="CENTER_LEFT"
+              spacing="15"
+              styleClass="header-bar">
+
+            <ImageView fitHeight="55" fitWidth="55">
+                <image>
+                    <Image url="@/PUP-LOGO.png"/>
+                </image>
+            </ImageView>
+
+            <VBox spacing="2" HBox.hgrow="ALWAYS">
+
+                <Label text="Student Management System"
+                       styleClass="header-title"/>
+
+                <Label text="Polytechnic University of the Philippines"
+                       styleClass="header-subtitle"/>
+
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Button text="Logout"
+                    onAction="#handleLogout"
+                    styleClass="logout-button"/>
+
+        </HBox>
 
         <GridPane hgap="12" vgap="12">
             <columnConstraints>

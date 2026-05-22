@@ -11,11 +11,24 @@ public final class AuthWindowFactory {
 
     public static Scene createLoginScene() throws IOException {
         FXMLLoader loader = new FXMLLoader(AuthWindowFactory.class.getResource("/com/example/test_student_management/login-view.fxml"));
-        return new Scene(loader.load(), 420, 300);
+        Scene scene = new Scene(loader.load(), 420, 300);
+
+        scene.getStylesheets().add(
+                AuthWindowFactory.class.getResource("/style.css").toExternalForm()
+        );
+
+        return scene;
+
     }
 
     public static Scene createSignUpScene() throws IOException {
         FXMLLoader loader = new FXMLLoader(AuthWindowFactory.class.getResource("/com/example/test_student_management/signup-view.fxml"));
-        return new Scene(loader.load(), 420, 360);
+        Scene scene = new Scene(loader.load(), 420, 360);
+
+        scene.getStylesheets().add(
+                AuthWindowFactory.class.getResource("/style.css").toExternalForm()
+        );
+
+        return scene;
     }
 }

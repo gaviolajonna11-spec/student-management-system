@@ -6,7 +6,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public final class Database {
-    private static final Dotenv ENV = Dotenv.load();
+    private static final Dotenv ENV = Dotenv.configure()
+            .directory("./")
+            .ignoreIfMissing()
+            .load();
 
     private Database() {
     }

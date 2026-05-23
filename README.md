@@ -6,7 +6,7 @@ This project was initially based on the workshop starter repository provided by 
 - User Login and Registration (Sign Up)
 - Secure password hashing (SHA-256)
 - Database connection using Supabase (PostgreSQL)
-- Student data management (Add, Update, Delete)
+- Student data management (Add, Update, Delete, Clear)
 - Pagination for viewing student records
 - PUP themed JavaFX user interface
 
